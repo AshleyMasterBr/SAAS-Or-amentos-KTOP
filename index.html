@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Orçamento Expresso - KTOP Piso</title>
+</head>
+<body class="bg-gray-900 text-white font-sans flex items-center justify-center min-h-screen p-4">
+
+    <div class="max-w-md w-full bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700">
+        <h2 class="text-2xl font-bold text-center mb-6 text-yellow-500">Orçamento Expresso</h2>
+        <p class="text-sm text-gray-400 text-center mb-6">Para áreas entre 10m² e 20m²</p>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium mb-1">Metragem (m²):</label>
+                <input type="number" id="metragem" min="10" max="20" value="10" 
+                    class="w-full p-3 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-yellow-500 outline-none transition">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Tipo de Piso:</label>
+                <select id="tipoPiso" class="w-full p-3 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-yellow-500 outline-none transition">
+                    <option value="146">Laminado (R$ 146,00/m²)</option>
+                    <option value="160">Vinílico (R$ 160,00/m²)</option>
+                </select>
+            </div>
+
+            <div class="mt-8 p-4 bg-gray-900 rounded-lg border-l-4 border-yellow-500">
+                <p class="text-sm text-gray-400">Investimento Total Estimado:</p>
+                <p id="resultado" class="text-3xl font-bold text-yellow-500">R$ 1.460,00</p>
+                <p class="text-[10px] text-gray-500 mt-2">*Incluso material e instalação básica.</p>
+            </div>
+
+            <button onclick="window.open('https://wa.me/SEUNUMEROAQUI', '_blank')" 
+                class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-bold py-3 rounded-lg transition duration-300 mt-4 shadow-lg">
+                Fechar Pedido via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const metragemInput = document.getElementById('metragem');
+        const tipoPisoSelect = document.getElementById('tipoPiso');
+        const resultadoDisplay = document.getElementById('resultado');
+
+        function calcular() {
+            let m2 = parseFloat(metragemInput.value);
+            let preco = parseFloat(tipoPisoSelect.value);
+
+            // Validação simples de segurança
+            if (m2 < 10) m2 = 10;
+            if (m2 > 20) m2 = 20;
+            if (isNaN(m2)) m2 = 0;
+
+            const total = m2 * preco;
+            resultadoDisplay.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        metragemInput.addEventListener('input', calcular);
+        tipoPisoSelect.addEventListener('change', calcular);
+    </script>
+</body>
+</html>
