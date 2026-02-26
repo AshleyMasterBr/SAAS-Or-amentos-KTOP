@@ -36,8 +36,10 @@
 
         header { background: #000; padding: 15px 0; border-bottom: 2px solid var(--primary); position: fixed; width: 100%; top: 0; z-index: 1000; }
         header .flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; color: #fff; }
-        .logo img { max-height: 50px; width: auto; border-radius: 50%; border: 2px solid var(--primary); }
+        
+        /* Ajuste da Logo */
+        .logo { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; color: #fff; text-decoration: none; }
+        .logo img { max-height: 50px; width: auto; border-radius: 50%; border: 2px solid var(--primary); background: #000; }
 
         .btn-zap-header { 
             background: var(--primary); color: #000; padding: 10px 20px; border-radius: 4px; 
@@ -45,11 +47,12 @@
             text-transform: uppercase; transition: 0.3s;
         }
 
+        /* Ajuste do Fundo Hero */
         .hero { 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(5,5,5,1)), url('fundo-ktop.jpg'); 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(5,5,5,1)), url('fundo.jpg'); 
             background-size: cover; background-position: center; 
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            padding: 120px 0 60px 0;
+            padding: 140px 0 60px 0;
         }
         .hero h1 { font-size: 3rem; line-height: 1; margin-bottom: 10px; text-align: center; }
         .hero h1 span { color: var(--primary); }
@@ -68,7 +71,7 @@
         }
         .form-group input:focus { border-color: var(--primary); }
         
-        /* Correção Contraste Checkbox */
+        /* Checkbox Correção Contraste */
         .checkbox-container {
             display: flex; align-items: center; gap: 12px; padding: 18px; 
             background: #080808; border-radius: 6px; border: 1px solid #222; margin-bottom: 20px;
@@ -81,7 +84,6 @@
             border: none; padding: 20px; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; 
             border-radius: 6px; cursor: pointer; transition: 0.3s;
         }
-        .btn-calc:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); }
 
         .features { padding: 80px 0; text-align: center; background: #050505; }
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 50px; }
@@ -98,9 +100,8 @@
             background: var(--bg-card); padding: 40px; border-radius: 12px;
             max-width: 480px; width: 100%; text-align: center; border: 2px solid var(--primary);
         }
-        /* Correção Campo de Valor Largo e Curto */
-        .price-display { background: #fff; padding: 15px 25px; border-radius: 8px; margin: 25px 0; width: 100%; }
-        .total-value { font-size: 2.8rem; font-weight: 900; color: #000; word-wrap: break-word; line-height: 1.1; }
+        .price-display { background: #fff; padding: 15px 25px; border-radius: 8px; margin: 25px 0; }
+        .total-value { font-size: 2.5rem; font-weight: 900; color: #000; word-wrap: break-word; line-height: 1; }
         
         .btn-action { 
             display: flex; justify-content: center; align-items: center; gap: 10px;
@@ -114,7 +115,7 @@
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.2rem; }
-            .total-value { font-size: 1.8rem; } /* Ajuste para não vazar o 20k */
+            .total-value { font-size: 1.8rem; }
             .calculator-box { padding: 25px; }
         }
     </style>
@@ -123,21 +124,22 @@
 
     <header>
         <div class="container flex">
-            <div class="logo">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="KTOP Piso"> 
                 <div style="font-weight: 900;">KTOP <span style="color: var(--primary);">PISO</span></div>
-            </div>
-            <a href="https://wa.me/5511967308598" target="_blank" class="btn-zap-header" onclick="fbq('track', 'Contact');">Atendimento Imediato</a>
+            </a>
+            <a href="https://wa.me/5511967308598" target="_blank" class="btn-zap-header" onclick="fbq('track', 'Contact');">Falar Agora</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
             <p>Especialistas em Pequenas Metragens</p>
-            <h1>O SEU NOVO <span>PISO</span></h1>
+            <h1>ORÇAMENTO <span>INSTANTÂNEO</span></h1>
             
             <div class="calculator-box">
                 <div class="form-group">
-                    <label>Metragem da Área (Permitido 10 a 20 m²)</label>
+                    <label>Metragem (Permitido 10 a 20 m²)</label>
                     <input type="number" id="metragem" min="10" max="20" placeholder="Ex: 15">
                 </div>
 
@@ -164,19 +166,19 @@
             <h2>POR QUE <span style="color: var(--primary);">KTOP PISO</span>?</h2>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Foco em Qualidade</h3>
-                    <p>Materiais selecionados para garantir durabilidade e estética impecável.</p>
+                    <i class="fas fa-medal"></i>
+                    <h3>Padrão de Elite</h3>
+                    <p>Mão de obra qualificada para projetos que exigem perfeição no acabamento.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Instalação Expert</h3>
-                    <p>Equipe própria e treinada para entregar o melhor acabamento do mercado.</p>
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantia Total</h3>
+                    <p>Sua obra protegida com materiais de primeira linha e suporte técnico.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-clock"></i>
-                    <h3>Agilidade Real</h3>
-                    <p>Cronograma respeitado e obra entregue no prazo combinado.</p>
+                    <h3>Entrega Ágil</h3>
+                    <p>Rapidez e limpeza. Sua casa renovada no tempo que você precisa.</p>
                 </div>
             </div>
         </div>
@@ -192,18 +194,18 @@
 
     <div class="modal-overlay" id="modalResult">
         <div class="modal-content">
-            <h2 style="font-size: 1.1rem; color: var(--primary);">INVESTIMENTO ESTIMADO</h2>
+            <h2 style="font-size: 1.1rem; color: var(--primary);">ESTIMATIVA DO PROJETO</h2>
             <div class="price-display">
                 <div class="total-value" id="valorFinal">R$ 0,00</div>
             </div>
             <div style="text-align: left; margin-bottom: 25px; font-size: 0.9rem; color: #888;">
                 <p style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--primary);"></i> <span id="pisoNome" style="color:#fff"></span></p>
-                <p><i class="fas fa-check" style="color: var(--primary);"></i> Rodapé: <span id="statusRodape" style="color:#fff"></span></p>
+                <p><i class="fas fa-check" style="color: var(--primary);"></i> Área: <span id="resM2" style="color:#fff"></span>m²</p>
             </div>
             <a href="#" id="linkZap" class="btn-action" target="_blank" onclick="fbq('track', 'Lead');">
-                Agendar via WhatsApp <i class="fab fa-whatsapp"></i>
+                Agendar no WhatsApp <i class="fab fa-whatsapp"></i>
             </a>
-            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#444; margin-top:25px; cursor:pointer; font-weight:800; text-transform:uppercase; font-size: 0.75rem;">Fechar</button>
+            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#444; margin-top:25px; cursor:pointer; font-weight:800; text-transform:uppercase; font-size: 0.75rem;">Voltar</button>
         </div>
     </div>
 
@@ -220,28 +222,21 @@
                 return;
             }
 
-            // Evento de Simulação
             fbq('track', 'Search', { search_string: modeloTexto, content_category: 'Pisos' });
 
             let total = m2 * precoPiso;
-            let infoRodape = "Não incluso";
-
-            if (temRodape) {
-                total += (m2 * 17.90);
-                infoRodape = "Incluso";
-            }
+            if (temRodape) { total += (m2 * 17.90); }
 
             const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('valorFinal').innerText = totalFormatado;
             document.getElementById('pisoNome').innerText = modeloTexto;
-            document.getElementById('statusRodape').innerText = infoRodape;
+            document.getElementById('resM2').innerText = m2;
 
-            const msg = `Olá KTOP Piso! Fiz uma simulação de orçamento:\n\n` +
+            const msg = `Olá KTOP Piso! Simulação realizada:\n\n` +
                         `- Área: ${m2}m²\n` +
                         `- Piso: ${modeloTexto}\n` +
-                        `- Rodapé: ${infoRodape}\n` +
                         `- Estimativa: ${totalFormatado}\n\n` +
-                        `Gostaria de agendar uma visita.`;
+                        `Vim do site e quero agendar minha instalação.`;
 
             document.getElementById('linkZap').href = `https://wa.me/5511967308598?text=${encodeURIComponent(msg)}`;
             document.getElementById('modalResult').style.display = 'flex';
