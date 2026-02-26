@@ -3,99 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orçamento Online | KTOP Piso</title>
+    <title>Orçamento Expresso | KTOP Piso</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '665269322811609');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=665269322811609&ev=PageView&noscript=1"
+    /></noscript>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #000; color: #fff; line-height: 1.6; font-weight: 600; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #050505; color: #fff; line-height: 1.6; font-weight: 600; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
         :root {
-            --primary: #D4AF37;
-            --bg-card: #111111;
+            --primary: #d4af37;
+            --bg-card: #121212;
             --accent: #25D366; 
         }
 
         header { background: #000; padding: 15px 0; border-bottom: 2px solid var(--primary); position: fixed; width: 100%; top: 0; z-index: 1000; }
         header .flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; color: #fff; font-weight: 900; }
+        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; }
         .logo span { color: var(--primary); }
 
-        .btn-zap-header { 
-            background: var(--primary); color: #000; padding: 10px 18px; border-radius: 4px; 
-            text-decoration: none; font-weight: 800; font-size: 0.8rem; 
-            text-transform: uppercase; transition: 0.3s;
-        }
-
         .hero { 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.98)), url('fundo-ktop.jpg'); 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(5,5,5,1)), url('fundo-ktop.jpg'); 
             background-size: cover; background-position: center; 
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             padding: 120px 0 60px 0;
         }
-        .hero h1 { font-size: 2.5rem; text-align: center; margin-bottom: 30px; }
+        .hero h1 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 15px; text-align: center; }
         .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 0.9rem; color: #888; margin-bottom: 35px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
 
         .calculator-box {
-            background: var(--bg-card); padding: 30px; border-radius: 12px;
-            box-shadow: 0 0 40px rgba(212,175,55,0.1);
-            max-width: 500px; margin: 0 auto; border: 1px solid #222;
+            background: var(--bg-card); padding: 35px; border-radius: 12px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.6);
+            max-width: 550px; width: 100%; margin: 0 auto; border: 1px solid #222;
         }
-
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 0.75rem; color: #aaa; text-transform: uppercase; }
-        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 0.75rem; color: var(--primary); text-transform: uppercase; }
         .form-group input, .form-group select { 
-            width: 100%; padding: 12px; border: 1px solid #333; border-radius: 6px; 
+            width: 100%; padding: 15px; border: 1px solid #333; border-radius: 8px; 
             font-size: 1rem; font-weight: 700; background: #000; color: #fff; outline: none;
-            transition: 0.3s;
         }
         .form-group input:focus { border-color: var(--primary); }
-        
-        /* Correção do Rodapé/Checkbox (Branco no Branco) */
-        .checkbox-group {
-            display: flex; align-items: center; gap: 12px; padding: 15px; 
-            background: #0a0a0a; border-radius: 6px; border: 1px solid #333; margin-bottom: 20px;
-        }
-        .checkbox-group input { width: 22px; height: 22px; cursor: pointer; accent-color: var(--primary); }
-        .checkbox-group label { margin: 0; cursor: pointer; color: #fff !important; font-size: 0.85rem; font-weight: 700; }
 
         .btn-calc { 
             width: 100%; background: var(--primary); color: #000; 
-            border: none; padding: 18px; font-size: 1.1rem; font-weight: 900; text-transform: uppercase; 
-            border-radius: 6px; cursor: pointer; transition: 0.3s;
+            border: none; padding: 20px; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; 
+            border-radius: 8px; cursor: pointer; transition: 0.3s;
         }
+        .btn-calc:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4); }
 
-        /* Modal e Ajuste de Valor para Mobile */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 2000;
+            background: rgba(0,0,0,0.97); z-index: 2000;
             display: none; justify-content: center; align-items: center; padding: 20px;
         }
         .modal-content {
-            background: var(--bg-card); padding: 30px; border-radius: 12px;
+            background: var(--bg-card); padding: 40px; border-radius: 16px;
             max-width: 450px; width: 100%; text-align: center; border: 2px solid var(--primary);
         }
-        .price-display { background: #fff; padding: 20px; border-radius: 6px; margin: 20px 0; overflow: hidden; }
-        .total-value { font-size: 2.2rem; font-weight: 900; color: #000; word-wrap: break-word; }
+        .price-display { background: #fff; padding: 25px; border-radius: 10px; margin: 25px 0; }
+        .total-value { font-size: 2.6rem; font-weight: 900; color: #000; word-wrap: break-word; }
         
         .btn-action { 
             display: flex; justify-content: center; align-items: center; gap: 10px;
             width: 100%; background: var(--accent); color: white; 
-            padding: 18px; text-decoration: none; font-weight: 800; border-radius: 6px; 
+            padding: 20px; text-decoration: none; font-weight: 800; border-radius: 8px; 
             font-size: 1.1rem; text-transform: uppercase;
         }
 
-        footer { background: #000; padding: 40px 0; border-top: 1px solid #111; text-align: center; }
-        .footer-text { font-size: 0.7rem; color: #444; text-transform: uppercase; letter-spacing: 1px; }
+        footer { background: #000; padding: 40px 0; text-align: center; border-top: 1px solid #111; }
+        .footer-text { font-size: 0.7rem; color: #444; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .total-value { font-size: 1.8rem; }
-            .calculator-box { padding: 20px; }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .total-value { font-size: 2rem; }
         }
     </style>
 </head>
@@ -104,86 +102,83 @@
     <header>
         <div class="container flex">
             <div class="logo">KTOP <span>PISO</span></div>
-            <a href="https://wa.me/SEUNUMERO" target="_blank" class="btn-zap-header">Falar com Consultor</a>
+            <a href="https://wa.me/5511967308598" target="_blank" class="btn-zap-header" style="text-decoration:none; color:var(--primary); font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Atendimento Direto</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>ORÇAMENTO <span>EXPRESSO</span></h1>
+            <p>Soluções para Pequenas Metragens</p>
+            <h1>ORÇAMENTO <span>INSTANTÂNEO</span></h1>
             
             <div class="calculator-box">
                 <div class="form-group">
-                    <label>Metragem (Permitido 10 a 20 m²)</label>
+                    <label>Metragem (Permitido: 10 a 20 m²)</label>
                     <input type="number" id="metragem" min="10" max="20" placeholder="Ex: 15">
                 </div>
 
                 <div class="form-group">
-                    <label>Escolha o Material</label>
+                    <label>Tipo de Piso</label>
                     <select id="modelo">
                         <option value="146">Piso Laminado (R$ 146,00/m²)</option>
                         <option value="160">Piso Vinílico (R$ 160,00/m²)</option>
                     </select>
                 </div>
 
-                <div class="checkbox-group">
-                    <input type="checkbox" id="rodape">
-                    <label for="rodape">Incluir Rodapé Padrão</label>
-                </div>
-
-                <button class="btn-calc" onclick="calcular()">Gerar Orçamento</button>
-                <p style="font-size: 0.65rem; color: #555; text-align: center; margin-top: 15px;">*Valores exclusivos para a metragem informada.</p>
+                <button class="btn-calc" onclick="calcular()">Ver Valor do Projeto</button>
+                <p style="font-size: 0.65rem; color: #555; margin-top: 15px; text-align: center;">*Valor estimado incluindo material e mão de obra expert.</p>
             </div>
         </div>
     </section>
 
+    <footer>
+        <div class="footer-text">© 2026 KTOP PISO. DESENVOLVIDO POR PIXEL STUDIO.</div>
+    </footer>
+
     <div class="modal-overlay" id="modalResult">
         <div class="modal-content">
-            <h2 style="font-size: 1.2rem; color: var(--primary);">ESTIMATIVA DO PROJETO</h2>
+            <h2 style="font-size: 1.2rem; color: var(--primary);">VALOR TOTAL ESTIMADO</h2>
             <div class="price-display">
                 <div class="total-value" id="valorFinal">R$ 0,00</div>
             </div>
-            <div style="text-align: left; margin-bottom: 20px; font-size: 0.9rem;">
-                <p><i class="fas fa-check" style="color: var(--primary);"></i> <span id="pisoNome"></span></p>
-                <p><i class="fas fa-check" style="color: var(--primary);"></i> Área: <span id="resMetragem"></span>m²</p>
+            <div style="text-align: left; margin-bottom: 25px; font-size: 0.9rem; color: #888;">
+                <p><i class="fas fa-check" style="color: var(--primary);"></i> <span id="resPiso" style="color:#fff"></span></p>
+                <p><i class="fas fa-check" style="color: var(--primary);"></i> Área informada: <span id="resM2" style="color:#fff"></span>m²</p>
             </div>
-            <a href="#" id="linkZap" class="btn-action" target="_blank">
-                Chamar no WhatsApp <i class="fab fa-whatsapp"></i>
+            <a href="#" id="linkZap" class="btn-action" target="_blank" onclick="fbq('track', 'Lead');">
+                Reservar meu Piso <i class="fab fa-whatsapp"></i>
             </a>
-            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#666; margin-top:20px; cursor:pointer; font-weight:800; text-transform:uppercase;">Fechar</button>
+            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#444; margin-top:20px; cursor:pointer; font-weight:800; text-transform:uppercase; font-size: 0.7rem;">Voltar</button>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-text">© 2026 KTOP PISO. Desenvolvido por Pixel Studio.</div>
-    </footer>
-
     <script>
         function calcular() {
-            let m2 = parseFloat(document.getElementById('metragem').value);
+            const m2 = parseFloat(document.getElementById('metragem').value);
             const selectPiso = document.getElementById('modelo');
             const precoPiso = parseFloat(selectPiso.value);
             const modeloTexto = selectPiso.options[selectPiso.selectedIndex].text.split('(')[0];
-            const temRodape = document.getElementById('rodape').checked;
             
             if (isNaN(m2) || m2 < 10 || m2 > 20) {
-                alert("Esta ferramenta é exclusiva para áreas entre 10 e 20m².");
+                alert("Esta ferramenta é exclusiva para medidas entre 10m² e 20m².");
                 return;
             }
 
-            let total = m2 * precoPiso;
-            if (temRodape) { total += (m2 * 15); } // Valor hipotético de rodapé p/ KTOP
+            // Evento de Simulação no Pixel
+            fbq('track', 'Search', { content_type: 'product', search_string: modeloTexto });
 
+            const total = m2 * precoPiso;
             const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            document.getElementById('valorFinal').innerText = totalFormatado;
-            document.getElementById('pisoNome').innerText = modeloTexto;
-            document.getElementById('resMetragem').innerText = m2;
 
-            const msg = `Olá KTOP Piso! Fiz um orçamento no site:\n\n` +
-                        `Área: ${m2}m²\n` +
-                        `Piso: ${modeloTexto}\n` +
-                        `Total Estimado: ${totalFormatado}\n\n` +
-                        `Gostaria de validar as informações com um consultor.`;
+            document.getElementById('valorFinal').innerText = totalFormatado;
+            document.getElementById('resPiso').innerText = modeloTexto;
+            document.getElementById('resM2').innerText = m2;
+
+            const msg = `Olá KTOP Piso! Fiz um orçamento expresso:\n\n` +
+                        `- Metragem: ${m2}m²\n` +
+                        `- Escolha: ${modeloTexto}\n` +
+                        `- Estimativa: ${totalFormatado}\n\n` +
+                        `Vim da página de orçamento e quero agendar minha instalação.`;
 
             document.getElementById('linkZap').href = `https://wa.me/5511967308598?text=${encodeURIComponent(msg)}`;
             document.getElementById('modalResult').style.display = 'flex';
